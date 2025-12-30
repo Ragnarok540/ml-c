@@ -16,6 +16,14 @@ sample or_train[] = {
     {1, 1, 1},
 };
 
+// NOR gate
+sample nor_train[] = {
+    {0, 0, 1},
+    {0, 1, 0},
+    {1, 0, 0},
+    {1, 1, 0},
+};
+
 // AND gate
 sample and_train[] = {
     {0, 0, 0},
@@ -41,6 +49,10 @@ sample xor_train[] = {
 };
 
 sample *train = or_train;
+// sample *train = nor_train;
+// sample *train = and_train;
+// sample *train = nand_train;
+// sample *train = xor_train;
 size_t train_count = 4; 
 
 float rand_float(void) {

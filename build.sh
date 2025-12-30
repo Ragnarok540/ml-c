@@ -1,4 +1,7 @@
 set -xe
 
-clang -Wall -Wextra -o twice twice.c -lm
-clang -Wall -Wextra -o gates gates.c -lm
+mkdir -p bin
+
+clang -Wall -Wextra -o bin/twice twice.c -lm
+clang -Wall -Wextra -o bin/gates gates.c -lm
+clang -Wall -Wextra -o bin/xor xor.c -lm
