@@ -2,10 +2,12 @@
 #include "nn.h"
 
 float td_sum[] = {
-    0, 0,   0, 0   0, 0,
-    0, 0,   0, 1   0, 1,
-    0, 1,   0, 1   1, 0,
-    0, 1,   1, 0   1, 1,
+    0, 0,   0, 0,   0, 0,
+    0, 0,   0, 1,   0, 1,
+    0, 1,   0, 0,   0, 1,
+    0, 1,   0, 1,   1, 0,
+    0, 1,   1, 0,   1, 1,
+    1, 0,   0, 1,   1, 1,
 }
 
 // XOR gate
@@ -33,14 +35,14 @@ int main(void) {
     Mat ti = {
         .rows = n,
         .cols = 2,
-        .stride  = stride,
+        .stride = stride,
         .es = td,
     };
 
     Mat to = {
         .rows = n,
         .cols = 1,
-        .stride  = stride,
+        .stride = stride,
         .es = td + 2,
     };
 
