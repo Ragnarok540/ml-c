@@ -49,15 +49,19 @@ int main(void) {
     printf("before: %f\n", cost(w));
 
     for (size_t i = 0; i < 50; i++) {
-        float c = cost(w);
+        
 #if 0
+        float c = cost(w);
         float eps = 1e-3f;
         float dw = (cost(w + eps) - c) / eps;
-#else
-        float dw = dcost(w);
-#endif
         w -= rate * dw;
         printf("cost = %f, w = %f\n", c, w);
+#else
+        float dw = dcost(w);
+        w -= rate * dw;
+        printf("w = %f\n", w);
+#endif
+
     }
 
     printf("----------------------------------------------\n");
