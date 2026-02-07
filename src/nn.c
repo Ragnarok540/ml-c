@@ -55,17 +55,24 @@ int main(void) {
     mat_copy(NN_INPUT(nn), row);
     printf("cost = %f\n", nn_cost(nn, ti, to));
 
-    float eps = 1e-1f;
+    // float eps = 1e-1f;
     float rate = 1e-1f;
 
-    nn_finite_diff(nn, g, eps, ti, to);
-    nn_learn(nn, g, rate);
-    printf("cost = %f\n", nn_cost(nn, ti, to));
+    // nn_finite_diff(nn, g, eps, ti, to);
+    // nn_learn(nn, g, rate);
+    // printf("cost = %f\n", nn_cost(nn, ti, to));
 
-    for (size_t i = 0; i < 15000; i++) {
+    for (size_t i = 0; i < 1; i++) {
+#if 0
+        float eps = 1e-1f;
         nn_finite_diff(nn, g, eps, ti, to);
-        nn_learn(nn, g, rate);
-        printf("%zu: cost = %f\n", i, nn_cost(nn, ti, to));
+        
+# else
+        nn_backprop(nn, g, ti, to);
+# endif
+        NN_PRINT(g);
+        // nn_learn(nn, g, rate);
+        // printf("%zu: cost = %f\n", i, nn_cost(nn, ti, to));
     }
 
     for (size_t i = 0; i < 2; i++) {
